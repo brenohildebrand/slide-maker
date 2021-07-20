@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack serve --config webpack.dev.js --open",
+    "build": "webpack --config webpack.prod.js"
   },
   "keywords": [],
   "author": "",
@@ -25,11 +26,13 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.6.1",
     "ace-builds": "^1.4.12",
     "immer": "^9.0.5",
     "react": "^17.0.2",
     "react-ace": "^9.4.1",
     "react-dom": "^17.0.2",
+    "react-redux": "^7.2.4",
     "redux": "^4.1.0"
   }
 }
