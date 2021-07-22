@@ -4,7 +4,7 @@ const slidesSlice = createSlice({
     name: 'slides',
     initialState: {
         currentIndex: 0,
-        length: 0,
+        length: 1,
         content: [{
             html: '',
             css: '',
