@@ -15,19 +15,50 @@ export default function Tutorial () {
     return ( 
 
         <section className={styles.Tutorial}>
-            <p>slide-maker</p>
             <div>
-                <p>Use <span><img src={key_t} alt="T"/></span> to see this tutorial</p>
-                <p>Use <span><img src={key_p} alt="P"/></span> to present the slides</p>
-                <p>Use <span><img src={key_f} alt="F"/></span> to toggle fullscreen</p>
+                <p>slide-maker</p>
             </div>
-            <div></div>
             <div>
-                <p>Use <span><img src={key_c} alt="C"/></span> to see the code</p> 
-                <p>Use <span><img src={key_arrow_left} alt="Arrow Left"/></span> and <span><img src={key_arrow_right} alt="Arrow Right" /></span> to switch between slides</p>
-                <p>Use <span><img src={key_esc} alt="ESC"/></span> to go back</p>
+                <aside>
+                    <div>
+                        <p>Use </p>
+                        <span><img src={key_t} alt="T"/></span>
+                        <p> to see this tutorial</p>
+                    </div>
+                    <div>
+                        <p>Use </p>
+                        <span><img src={key_p} alt="P"/></span>
+                        <p> to present the slides</p>
+                    </div>
+                    <div>
+                        <p>Use </p>
+                        <span><img src={key_f} alt="F"/></span>
+                        <p> to toggle fullscreen</p>
+                    </div>
+                </aside>
+                <aside>
+                    <div>
+                        <p>Use </p>
+                        <span><img src={key_c} alt="C"/></span>
+                        <p> to see the code</p>
+                    </div>
+                    <div>
+                        <p>Use </p>
+                        <span><img src={key_arrow_left} alt="Arrow Left"/></span>
+                        <p> and </p>
+                        <span><img src={key_arrow_right} alt="Arrow Right" /></span>
+                        <p> to switch between slides</p>
+                    </div>
+                    <div>
+                        <p>Use </p>
+                        <span><img src={key_esc} alt="ESC"/></span>
+                        <p> to go back</p>
+                    </div>
+                </aside>
             </div>
-            <p>skip</p>
+            <div>
+                <p>skip</p>
+            </div>
         </section>
 
     );

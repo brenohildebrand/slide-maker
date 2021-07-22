@@ -8,7 +8,7 @@ const uiSlice = createSlice({
         isShowing: {
             icons: true,
             tutorial: false,
-            codeEditor: true,
+            codeEditor: false,
         }
     },
     reducers: {
