@@ -38,6 +38,7 @@ export default function SlidesGrid () {
                                             srcDoc={srcDoc} 
                                             title="slide"
                                         />
+                                        <div id="iframe-selection" className={styles.iframeSelection}></div>
                                     </div>
                                     {
                                         isTheLastSlide && !isACompleteChunk ? 

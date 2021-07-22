@@ -7,8 +7,8 @@ export default function ShortcutsWrapper ({ children }) {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        document.addEventListener('keydown', (event) => handleShortcuts(event, dispatch));
-        return () => document.removeEventListener('keydown', (event) => handleShortcuts(event, dispatch));
+        window.addEventListener('keydown', (event) => handleShortcuts(event, dispatch));
+        return () => window.removeEventListener('keydown', (event) => handleShortcuts(event, dispatch));
     })
 
     return <>{children}</>;

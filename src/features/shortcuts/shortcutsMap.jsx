@@ -1,9 +1,8 @@
-import { next } from "../slides/slidesSlice";
+import { next, previous } from "../slides/slidesSlice";
 
 const shortcutsMap = {
-    Escape: (dispatch) => {},
-    ArrowLeft: (dispatch) => dispatch(next()),
-    ArrowRight: (dispatch) => dispatch(previous()),
+    ArrowRight: (dispatch) => dispatch(next()),
+    ArrowLeft: (dispatch) => dispatch(previous()),
 }
 
 export default shortcutsMap;

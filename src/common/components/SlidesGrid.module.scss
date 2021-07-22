@@ -32,10 +32,11 @@ $size: 15;
 .SlidesGrid > div > div {
     flex: 1;
 
+    position: relative;
+
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .SlidesGrid > div > div > iframe {
@@ -43,4 +44,16 @@ $size: 15;
     height: $size + vh;
     
     border: 2px solid rgba(0, 0, 0, .87);
+}
+
+/* Iframe Selection */
+.iframeSelection {
+    position: absolute;
+
+    width: $size + vw;
+    height: $size + vh;
+
+    background: transparent;
+
+    z-index: 1;
 }

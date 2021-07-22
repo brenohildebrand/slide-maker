@@ -21,13 +21,16 @@ export default function Slides () {
 `
 
     return (
-        <iframe
-            className={styles.Slides}
-            srcDoc={srcDoc} 
-            title="slide"
-            sandbox="allow-scripts"
-            allowFullScreen
-        />
+        <>
+            <iframe
+                className={styles.Slides}
+                srcDoc={srcDoc} 
+                title="slide"
+                sandbox="allow-scripts"
+                allowFullScreen
+            />
+            <div id="iframe-selection" className={styles.iframeSelection}></div>
+        </>
     );
 
 }
