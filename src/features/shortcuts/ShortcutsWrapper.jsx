@@ -1,15 +1,53 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import handleShortcuts from './handleShortcuts';
+import { next, previous, setIndexToZero } from '../slides/slidesSlice';
+import { hideIcons, setFullscreen, toggleCodeEditor, toggleCurrentPage, toggleFullscreen, toggleIcons, toggleTutorial } from '../ui/uiSlice';
 
 export default function ShortcutsWrapper ({ children }) {
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-        window.addEventListener('keydown', (event) => handleShortcuts(event, dispatch));
-        return () => window.removeEventListener('keydown', (event) => handleShortcuts(event, dispatch));
-    })
+        window.addEventListener('keydown', (event) => handleShortcuts(event));
+        return () => window.removeEventListener('keydown', (event) => handleShortcuts(event));
+    }, []);
+
+    function handleShortcuts (event) {
+
+        const keyCode = event.code;
+        const keyAction = shortcutsMap[keyCode];
+        
+        /* Block input from the AceEditor textarea */
+        const targetName = event.target.localName;
+        if(targetName === 'textarea') return;
+
+        if(keyAction) keyAction(event);
+    }
+
+    const shortcutsMap = {
+        KeyT: () => {
+            dispatch(toggleTutorial());
+        },
+        KeyC: () => {
+            dispatch(toggleCodeEditor());
+        },
+        KeyM: () => {
+            dispatch(toggleCurrentPage());
+        },
+        KeyF: () => {
+            dispatch(toggleFullscreen());
+        },
+        KeyP: () => {
+            dispatch(setIndexToZero());
+            dispatch(setFullscreen());
+            dispatch(hideIcons());
+        },
+        KeyH: () => {
+            dispatch(toggleIcons());
+        },
+        ArrowRight: () => dispatch(next()),
+        ArrowLeft: () => dispatch(previous()),
+    }
 
     return <>{children}</>;
 

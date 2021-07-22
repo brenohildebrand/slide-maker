@@ -3,7 +3,7 @@
 <rect width="40" height="40" rx="10" fill="white"/>
 <rect x="0.5" y="0.5" width="39" height="39" rx="9.5" stroke="black" stroke-opacity="0.3"/>
 </g>
-<path d="M22.4102 30H17.7812V16.6523H13.5977V12.8672H26.582V16.6523H22.4102V30Z" fill="black" fill-opacity="0.3"/>
+<path d="M18.3164 30L14.8125 17.6602H14.707C14.8711 19.7617 14.9531 21.3945 14.9531 22.5586V30H10.8516V12.8672H17.0156L20.5898 25.0312H20.6836L24.1875 12.8672H30.3633V30H26.1094V22.4883C26.1094 22.0977 26.1133 21.6641 26.1211 21.1875C26.1367 20.7109 26.1914 19.543 26.2852 17.6836H26.1797L22.7227 30H18.3164Z" fill="black" fill-opacity="0.3"/>
 <defs>
 <filter id="filter0_d" x="0" y="0" width="43" height="44" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>

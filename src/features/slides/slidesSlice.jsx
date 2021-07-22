@@ -12,6 +12,9 @@ const slidesSlice = createSlice({
         }]
     },
     reducers: {
+        upload(state, action) {
+            return action.payload;
+        },
         add(state, action) {
             state.content.push({
                 html: '',
@@ -24,8 +27,13 @@ const slidesSlice = createSlice({
         remove(state, action) {
             const currentIndex = state.currentIndex;
 
+            if(state.length === 1) return state;
+
             state.content.splice(currentIndex, 1);
             state.length -= 1;
+
+            if(state.currentIndex === state.length) 
+                state.currentIndex -= 1;
         },
         updatehtml(state, action) { 
             const newValue = action.payload;
@@ -59,6 +67,6 @@ const slidesSlice = createSlice({
     }
 });
 
-export const {add, remove, updatehtml, updatecss, updatejavascript, next, previous, setIndexToZero} = slidesSlice.actions;
+export const {upload, add, remove, updatehtml, updatecss, updatejavascript, next, previous, setIndexToZero} = slidesSlice.actions;
 
 export default slidesSlice.reducer;

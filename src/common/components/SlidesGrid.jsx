@@ -15,7 +15,7 @@ export default function SlidesGrid () {
             {chunks.map((groupOfSlides, index) => {
 
                 return (
-                    <div key={index}>
+                    <div key={`group-${index}`}>
                         {groupOfSlides.map((slide, index) => {
 
                             const isTheLastSlide = (index === groupOfSlides.length - 1);
@@ -32,9 +32,8 @@ export default function SlidesGrid () {
 
                             return (
                                 <>
-                                    <div>
+                                    <div key={`slide-${index}`}>
                                         <iframe
-                                            key={index}
                                             srcDoc={srcDoc} 
                                             title="slide"
                                         />

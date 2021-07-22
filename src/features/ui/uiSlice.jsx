@@ -19,6 +19,9 @@ const uiSlice = createSlice({
         toggleIcons(state, action) {
             state.isShowing.icons = !state.isShowing.icons;
         },
+        hideIcons(state, action) {
+            state.isShowing.icons = false;
+        },
         toggleTutorial(state, action) {
             state.isShowing.tutorial = !state.isShowing.tutorial;
         },
@@ -37,6 +40,7 @@ const uiSlice = createSlice({
 export const {
     toggleCurrentPage,
     toggleIcons,
+    hideIcons,
     toggleTutorial,
     toggleCodeEditor,
     toggleFullscreen,

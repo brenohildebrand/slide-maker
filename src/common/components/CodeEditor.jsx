@@ -6,38 +6,43 @@ import 'ace-builds/src-noconflict/mode-javascript';
 import 'ace-builds/src-noconflict/theme-nord_dark';
 import styles from './CodeEditor.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
+import { createAutosave } from '../../features/autosave/autosave';
+import localStorage from '../../features/storage/storageAPI';
 
-const selectSlidesContent = state => state.slides.content;
-const selectCurrentIndex = state => state.slides.currentIndex;
+const selectSlides = state => state.slides;
 
 export default function CodeEditor () {
 
     const dispatch = useDispatch();
 
-    const slidesContent = useSelector(selectSlidesContent);
-    const currentIndex = useSelector(selectCurrentIndex);
+    const slides = useSelector(selectSlides);
+    const { content, currentIndex } = slides;
 
     const [currentMode, setCurrentMode] = useState('html');
+
+    const autosave = createAutosave(() => {
+        localStorage.setItem('slides', slides);
+    });
 
     const handleAceEditorOnChange = ( newValue ) => {
         dispatch({
             type: `slides/update${currentMode}`,
             payload: newValue
-        })
+        });
     }
 
     return (
         <section className={styles.CodeEditor}>
             <div>
-                <div onClick={() => setCurrentMode('html')}>
+                <div onClick={() => setCurrentMode('html')} className={currentMode === 'html'? styles.selected : null}>
                     <p>html</p>
                 </div>
                 <span></span>
-                <div onClick={() => setCurrentMode('css')}>
+                <div onClick={() => setCurrentMode('css')} className={currentMode === 'css'? styles.selected : null}>
                     <p>css</p>
                 </div>
                 <span></span>
-                <div onClick={() => setCurrentMode('javascript')}>
+                <div onClick={() => setCurrentMode('javascript')} className={currentMode === 'javascript'? styles.selected : null}>
                     <p>javascript</p>
                 </div>
             </div>
@@ -45,8 +50,9 @@ export default function CodeEditor () {
                 <AceEditor 
                     mode={currentMode}
                     theme='nord_dark'
-                    value={slidesContent[currentIndex][currentMode]}
+                    value={content[currentIndex][currentMode]}
                     onChange={handleAceEditorOnChange}
+                    onInput={autosave}
                     fontSize='18px'
                     height='100%'
                     width='100%'

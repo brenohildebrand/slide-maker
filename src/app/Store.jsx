@@ -3,7 +3,7 @@ import RootReducer from "./RootReducer";
 import localStorage from "../features/storage/storageAPI"
 
 const preloadedState = {
-    slides: localStorage.getItem("slides") ?? undefined,
+    slides: localStorage.getItem('slides') ?? undefined,
 };
 
 const store = configureStore({

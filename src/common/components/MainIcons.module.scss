@@ -25,11 +25,14 @@
 
     /* Each item */
     & > div {
-
         margin: 0.5rem;
+
+        transition: transform 0.2s ease-in-out;
+
 
         &:hover {
             cursor: pointer;
+            transform: scale(1.2);
         }
         
     }
@@ -41,8 +44,11 @@
         display: inline-block;
         margin: 0.5rem;
 
+        transition: transform 0.2s ease-in-out;
+
         &:hover {
             cursor: pointer;
+            transform: scale(1.2);
         }
     }
 }

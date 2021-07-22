@@ -45,10 +45,12 @@
 
     & > div {
         margin: 1.2rem;
+        transition: transform 0.2s ease-in-out;
     }
 
     & > div:hover {
         cursor: pointer;
+        transform: scale(1.2);
     }
 }
 
@@ -58,4 +60,9 @@
     height: 100%;
 
     margin-bottom: 0.5rem;
+}
+
+.selected {
+    color: #eceff4;
+    transform: scale(1.2);
 }
