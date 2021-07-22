@@ -1,0 +1,46 @@
+$size: 15;
+
+.SlidesGrid {
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    top: 0;
+    left: 0;
+
+    overflow: hidden;
+
+    width: 100%;
+
+    padding: 9rem 0;
+}
+
+.SlidesGrid > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    width: 100%;
+
+    margin-bottom: 5vh;
+}
+
+.SlidesGrid > div > div {
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.SlidesGrid > div > div > iframe {
+    width: $size + vw;
+    height: $size + vh;
+    
+    border: 2px solid rgba(0, 0, 0, .87);
+}

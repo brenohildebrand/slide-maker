@@ -1,0 +1,68 @@
+.MenuIcons {
+    position: absolute;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    
+    padding: 2rem 2rem;
+    
+    z-index: 1;
+}
+
+/* Upload and Download */
+.MenuIcons > div:first-child {
+    flex: 1;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    /* Each item */
+    & > div {
+
+        margin: 0.5rem;
+
+        &:hover {
+            cursor: pointer;
+        }
+        
+    }
+}
+
+/* Text */
+.MenuIcons > div:nth-child(2) {
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* Menu */
+.MenuIcons > div:last-child {
+    flex: 1;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+
+    & > div {
+        display: inline-block;
+        margin: 0.5rem;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}

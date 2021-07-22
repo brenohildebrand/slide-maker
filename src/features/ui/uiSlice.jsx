@@ -1,23 +1,46 @@
-export default function uiSlice (state = {
-    activeInterface: 'main',
-    showing: {
-        icons: true,
-        tutorial: false,
-        codeEditor: false,
-    }  
-}, action) {
+import { createSlice } from "@reduxjs/toolkit";
 
-    switch(action.type) {
-        case "ui/mainActivated":
-        case "ui/menuActivated":
-        case "ui/showingIcons":
-        case "ui/hidingIcons":
-        case "ui/showingTutorial":
-        case "ui/hidingTutorial":
-        case "ui/showingCodeEditor":
-        case "ui/hidingCodeEditor":
-        default:
-            return;
+const uiSlice = createSlice({
+    name: 'ui',
+    initialState: {
+        currentPage: 'main',
+        fullscreen: false,
+        isShowing: {
+            icons: true,
+            tutorial: false,
+            codeEditor: true,
+        }
+    },
+    reducers: {
+        toggleCurrentPage(state, action) {
+            if(state.currentPage === 'main') state.currentPage = 'menu';
+            else if(state.currentPage === 'menu') state.currentPage = 'main';
+        },
+        toggleIcons(state, action) {
+            state.isShowing.icons = !state.isShowing.icons;
+        },
+        toggleTutorial(state, action) {
+            state.isShowing.tutorial = !state.isShowing.tutorial;
+        },
+        toggleCodeEditor(state, action) {
+            state.isShowing.codeEditor = !state.isShowing.codeEditor;
+        },
+        toggleFullscreen(state, action) {
+            state.fullscreen = !state.fullscreen;
+        },
+        setFullscreen(state, action) {
+            state.fullscreen = true;
+        }
     }
+});
 
-}
+export const {
+    toggleCurrentPage,
+    toggleIcons,
+    toggleTutorial,
+    toggleCodeEditor,
+    toggleFullscreen,
+    setFullscreen
+} = uiSlice.actions;
+
+export default uiSlice.reducer;

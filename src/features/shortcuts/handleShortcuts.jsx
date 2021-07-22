@@ -1,10 +1,10 @@
 import shortcutsMap from "./shortcutsMap";
 
-export function handleShortcuts (event) {
+export default function handleShortcuts (event, dispatch) {
 
     const keyCode = event.code;
     const keyAction = shortcutsMap[keyCode];
 
-    keyAction && keyAction();
+    keyAction && keyAction(dispatch);
 
 }

@@ -2,7 +2,7 @@ const localStorage = {
 
     getItem: (key) => {
 
-        const dataAsString = windows.localStorage.getItem(key);
+        const dataAsString = window.localStorage.getItem(key);
         const dataAsObject = JSON.parse(dataAsString);
 
         return dataAsObject;

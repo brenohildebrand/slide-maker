@@ -1,0 +1,46 @@
+.MainIcons {
+    position: absolute;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding: 2rem 2rem;
+}
+
+/* Four First Items */
+.MainIcons > div:first-child {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    /* Each item */
+    & > div {
+
+        margin: 0.5rem;
+
+        &:hover {
+            cursor: pointer;
+        }
+        
+    }
+}
+
+/* Menu */
+.MainIcons > div:last-child {
+    & > div {
+        display: inline-block;
+        margin: 0.5rem;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
