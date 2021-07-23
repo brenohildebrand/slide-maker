@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './MenuIcons.module.scss';
 
@@ -11,15 +11,14 @@ import { upload } from '../../features/slides/slidesSlice';
 import localStorage from '../../features/storage/storageAPI';
 
 const selectSlides = state => state.slides;
-const selectSlidesLength = state => state.slides.length;
-const selectCurrentIndex = state => state.slides.currentIndex;
 
 export default function MenuIcons () {
 
     const dispatch = useDispatch();
+
     const slides = useSelector(selectSlides);
-    const slidesLength = useSelector(selectSlidesLength);
-    const currentIndex = useSelector(selectCurrentIndex);
+    const { length: slidesLength, currentIndex } = slides;
+
     const uploadFile = useRef(null);
     const downloadFile = useRef(null);
 
@@ -28,13 +27,21 @@ export default function MenuIcons () {
 
     const handleFileInputOnChange = (event) => {
         event.preventDefault();
+
+        /* When the user chooses a file */
         const file = uploadFile.current.files[0];
         const reader = new FileReader();
+
+        /* Read the file content as a string */
         reader.readAsText(file);
         reader.onload = () => {
+            /* Convert it to an object */
             const result = JSON.parse(reader.result);
+
+            /* Update the state with the slides */
             dispatch(upload(result));
             
+            /* Update the localStorage */
             localStorage.setItem('slides', result);
         }
     }

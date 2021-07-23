@@ -19,9 +19,6 @@ const uiSlice = createSlice({
         toggleIcons(state, action) {
             state.isShowing.icons = !state.isShowing.icons;
         },
-        hideIcons(state, action) {
-            state.isShowing.icons = false;
-        },
         toggleTutorial(state, action) {
             state.isShowing.tutorial = !state.isShowing.tutorial;
         },
@@ -31,8 +28,9 @@ const uiSlice = createSlice({
         toggleFullscreen(state, action) {
             state.fullscreen = !state.fullscreen;
         },
-        setFullscreen(state, action) {
+        present(state, action) {
             state.fullscreen = true;
+            state.isShowing.icons = false;
         }
     }
 });
@@ -44,7 +42,7 @@ export const {
     toggleTutorial,
     toggleCodeEditor,
     toggleFullscreen,
-    setFullscreen
+    present,
 } = uiSlice.actions;
 
 export default uiSlice.reducer;

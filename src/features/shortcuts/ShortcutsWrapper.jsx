@@ -1,7 +1,14 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { next, previous, setIndexToZero } from '../slides/slidesSlice';
-import { hideIcons, setFullscreen, toggleCodeEditor, toggleCurrentPage, toggleFullscreen, toggleIcons, toggleTutorial } from '../ui/uiSlice';
+import { 
+    toggleCodeEditor, 
+    toggleCurrentPage, 
+    toggleFullscreen, 
+    toggleIcons, 
+    toggleTutorial,
+    present, 
+} from '../ui/uiSlice';
 
 export default function ShortcutsWrapper ({ children }) {
 
@@ -39,8 +46,7 @@ export default function ShortcutsWrapper ({ children }) {
         },
         KeyP: () => {
             dispatch(setIndexToZero());
-            dispatch(setFullscreen());
-            dispatch(hideIcons());
+            dispatch(present());
         },
         KeyH: () => {
             dispatch(toggleIcons());

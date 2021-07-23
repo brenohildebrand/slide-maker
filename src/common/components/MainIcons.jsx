@@ -9,7 +9,7 @@ import code_svg from '../assets/icons/code.svg';
 import menu_svg from '../assets/icons/menu.svg';
 import { useDispatch } from 'react-redux';
 import { add, remove, setIndexToZero } from '../../features/slides/slidesSlice';
-import { hideIcons, setFullscreen, toggleCodeEditor, toggleCurrentPage } from '../../features/ui/uiSlice';
+import { toggleCodeEditor, toggleCurrentPage, present } from '../../features/ui/uiSlice';
 
 export default function MainIcons () {
 
@@ -18,8 +18,7 @@ export default function MainIcons () {
     const handlePlayOnClick = (event) => {
         event.preventDefault();
         dispatch(setIndexToZero());
-        dispatch(setFullscreen());
-        dispatch(hideIcons());
+        dispatch(present());
     }
 
     const handleAddOnClick = (event) => {

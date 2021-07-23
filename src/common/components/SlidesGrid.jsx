@@ -8,18 +8,23 @@ const selectSlidesContent = state => state.slides.content;
 export default function SlidesGrid () {
 
     const slidesContent = useSelector(selectSlidesContent);
+
+    /* group the slides in chunks of 5 */
     const chunks = chunk(slidesContent, 5);
 
     return (
         <section className={styles.SlidesGrid}>    
             {chunks.map((groupOfSlides, index) => {
 
-                return (
-                    <div key={`group-${index}`}>
-                        {groupOfSlides.map((slide, index) => {
+                /* for each group, return a row of 5 slides */
 
+                return (
+                    <div key={`${index}-group-of-slides`}>
+                        {groupOfSlides.map((slide, index) => {
+                            
                             const isTheLastSlide = (index === groupOfSlides.length - 1);
                             const isACompleteChunk = index + 1 === 5;
+
                             const { html, css, javascript } = slide;
 
                             const srcDoc = `
@@ -32,17 +37,19 @@ export default function SlidesGrid () {
 
                             return (
                                 <>
-                                    <div key={`slide-${index}`}>
+                                    <div key={`${index}-slide`}>
                                         <iframe
                                             srcDoc={srcDoc} 
                                             title="slide"
                                         />
-                                        <div id="iframe-selection" className={styles.iframeSelection}></div>
+                                        <div 
+                                            id="iframe-selection" 
+                                            className={styles.iframeSelection}>                            
+                                        </div>
                                     </div>
                                     {
-                                        isTheLastSlide && !isACompleteChunk ? 
-                                            times(5 - (index + 1), i => <div key={`${i}-div-to-complete`}></div>) 
-                                            : null
+                                        /* complete the row of 5, if it's not completed and if it's the last slide */
+                                        isTheLastSlide && !isACompleteChunk && times(5 - (index + 1), idx => <div key={`${idx}-div-to-complete`}></div>)                                     
                                     }
                                 </>
                             );

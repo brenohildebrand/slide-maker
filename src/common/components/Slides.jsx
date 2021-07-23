@@ -3,12 +3,11 @@ import { useSelector } from 'react-redux';
 import styles from './Slides.module.scss';
 
 const selectSlides = state => state.slides;
-const selectCurrentIndex = state => state.slides.currentIndex;
 
 export default function Slides () {
 
     const slides = useSelector(selectSlides);
-    const currentIndex = useSelector(selectCurrentIndex);
+    const { currentIndex } = slides;
 
     const { html, css, javascript } = slides.content[currentIndex];
 
