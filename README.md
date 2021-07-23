@@ -1,5 +1,5 @@
 <h1>slide-maker</h1>
-<p>This is slide-maker, an app to create slides using HTML, CSS and JS. <a>Click to see the demo.</a></p>
+<p>This is slide-maker, an app to create slides using HTML, CSS and JS. <a href="https://brenoh1ldebr4nd.github.io/slide-maker-demo/">Click to see the demo.</a></p>
 
 <br />
 
@@ -35,4 +35,4 @@ npm install
 <br />
 
 <h2>License</h2>
-<p>This app is under the <a href="/License">MIT License</a>.</p>
+<p>This app is under the <a href="/LICENSE">MIT License</a>.</p>
