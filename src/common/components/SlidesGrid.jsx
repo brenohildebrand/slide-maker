@@ -1,29 +1,42 @@
 import React from 'react';
 import { chunk, times } from 'lodash';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styles from './SlidesGrid.module.scss';
+import { setIndexTo } from '../../features/slides/slidesSlice';
 
-const selectSlidesContent = state => state.slides.content;
+const selectSlides = state => state.slides;
 
 export default function SlidesGrid () {
 
-    const slidesContent = useSelector(selectSlidesContent);
+    const dispatch = useDispatch();
+
+    const slides = useSelector(selectSlides);
+    const { content, currentIndex } = slides;
 
     /* group the slides in chunks of 5 */
-    const chunks = chunk(slidesContent, 5);
+    const chunks = chunk(content, 5);
+
+    const handleSlideOnClick = (event, index) => {
+        event.preventDefault();
+        dispatch(setIndexTo(index));
+
+        console.log('I was selected!', index);
+    }
 
     return (
         <section className={styles.SlidesGrid}>    
-            {chunks.map((groupOfSlides, index) => {
+            {chunks.map((groupOfSlides, groupIndex) => {
 
                 /* for each group, return a row of 5 slides */
 
                 return (
-                    <div key={`${index}-group-of-slides`}>
+                    <div key={`${groupIndex}-group-of-slides`}>
                         {groupOfSlides.map((slide, index) => {
                             
                             const isTheLastSlide = (index === groupOfSlides.length - 1);
                             const isACompleteChunk = index + 1 === 5;
+
+                            const myIndex = groupIndex * 5 + index;
 
                             const { html, css, javascript } = slide;
 
@@ -39,12 +52,15 @@ export default function SlidesGrid () {
                                 <>
                                     <div key={`${index}-slide`}>
                                         <iframe
+                                            className={`${(myIndex === currentIndex) ? styles.selected : null}`}
                                             srcDoc={srcDoc} 
                                             title="slide"
                                         />
                                         <div 
                                             id="iframe-selection" 
-                                            className={styles.iframeSelection}>                            
+                                            onClick={(event) => handleSlideOnClick(event, index)}
+                                            className={styles.iframeSelection}
+                                        >                          
                                         </div>
                                     </div>
                                     {

@@ -63,10 +63,16 @@ const slidesSlice = createSlice({
         },
         setIndexToZero(state, action) {
             state.currentIndex = 0;
+        },
+        setIndexTo(state, action) {
+            const newIndex = action.payload;
+
+            if(newIndex < 0 || newIndex >= state.length) return;
+            state.currentIndex = newIndex;
         }
     }
 });
 
-export const {upload, add, remove, updatehtml, updatecss, updatejavascript, next, previous, setIndexToZero} = slidesSlice.actions;
+export const {upload, add, remove, updatehtml, updatecss, updatejavascript, next, previous, setIndexToZero, setIndexTo} = slidesSlice.actions;
 
 export default slidesSlice.reducer;

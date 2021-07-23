@@ -48,7 +48,7 @@ export default function ShortcutsWrapper ({ children }) {
             dispatch(setIndexToZero());
             dispatch(present());
         },
-        KeyH: () => {
+        KeyI: () => {
             dispatch(toggleIcons());
         },
         ArrowRight: () => dispatch(next()),
