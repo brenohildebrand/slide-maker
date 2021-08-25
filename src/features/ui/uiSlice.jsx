@@ -7,7 +7,7 @@ const uiSlice = createSlice({
         fullscreen: false,
         isShowing: {
             icons: true,
-            tutorial: false,
+            tutorial: true,
             codeEditor: false,
         }
     },

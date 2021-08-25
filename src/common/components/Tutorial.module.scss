@@ -16,7 +16,11 @@
 
     font-weight: 600;
     font-size: 1.2rem;
-    color: rgba(0, 0, 0, 0.3)
+    color: rgba(0, 0, 0, 0.3);
+
+    box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    padding-top: 30px;
 }
 
 .Tutorial > aside {
