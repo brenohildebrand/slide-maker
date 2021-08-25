@@ -3,6 +3,8 @@
 
 <br />
 
+<img src="https://github.com/brenoh1ldebr4nd/slide-maker/blob/main/hello-world-slide-maker.PNG" alt="Hello-World slide-maker" />
+
 <h2>Get Started</h2>
 <p>Slide-maker has a simple interface and an in browser editor. <strong>Press T to see the tutorial.</strong></p>
 <p>Notice that <strong>this app uses the browser local storage</strong> to persist data. If you want, it's possible to download a JSON containing the source code for the slides. Go to the menu and you will see an icon in the top left corner.</p>
