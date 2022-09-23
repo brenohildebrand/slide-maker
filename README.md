@@ -1,5 +1,5 @@
 <h1>slide-maker</h1>
-<p>This is slide-maker, an app to create slides using HTML, CSS and JS. <a href="https://brenoh1ldebr4nd.github.io/slide-maker-demo/">Click to see the demo.</a></p>
+<p>This is slide-maker, an app to create slides using HTML, CSS and JS. It's in <a href="https://slide-maker-brenohildebrand.vercel.app/">production</a>.</p>
 
 <br />
 
